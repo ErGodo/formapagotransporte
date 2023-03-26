@@ -11,7 +11,7 @@ const formaPagoRoutes = require('./routes/formaspago');
 
 
 //Settings 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3002);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
