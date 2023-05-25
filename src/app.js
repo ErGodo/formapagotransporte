@@ -9,9 +9,14 @@ const bodyParser = require('body-parser');
 //importing routes
 const formaPagoRoutes = require('./routes/formaspago');
 
+const cors = require("cors");
+app.use(cors({
+    origin: ['https://otigo.cl', 'http://localhost:3001']
+  }));
+
 
 //Settings 
-app.set('port', process.env.PORT || 3002);
+app.set('port', process.env.PORT || 3011);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -38,5 +43,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //init server
 app.listen(app.get('port'), ()=>{
-    console.log('Server on port 3000');
+    console.log('Server on port 3011');
 });

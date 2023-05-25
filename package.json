@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js", 
+    "dev": "nodemon src/app.js",
     "start": "node src/app.js"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ErGodo/formapagotransporte#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-myconnection": "^1.0.4",
     "morgan": "^1.10.0",
