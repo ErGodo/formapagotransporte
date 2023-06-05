@@ -11,7 +11,7 @@ const formaPagoRoutes = require('./routes/formaspago');
 
 const cors = require("cors");
 app.use(cors({
-    origin: ['https://otigo.cl', 'http://localhost:3001']
+    origin: ['https://otigo.cl', 'http://localhost:3000']
   }));
 
 
@@ -25,12 +25,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(myConnection(mysql, {
-    host: 'transportesotisdb.ctzqtr9v0wfd.us-east-1.rds.amazonaws.com',
-    user: 'admin',
-    password: 'Godo9801*.', 
+    host: 'us-cdbr-east-06.cleardb.net',
+    user: 'baf3c85f075308',
+    password: '2b185c89', 
     port: 3306, 
-    database: 'otisdb'
+    database: 'heroku_ac5b0fe847456b7'
 }, 'single'));
+
 
 //routes
 app.use('/', formaPagoRoutes);
