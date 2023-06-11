@@ -11,7 +11,7 @@ const formaPagoRoutes = require('./routes/formaspago');
 
 const cors = require("cors");
 app.use(cors({
-    origin: ['http://otigo.cl', 'http://localhost:3000']
+    origin: ['http://otigo.cl', 'http://localhost:3000', 'https://otigo.cl' ]
   }));
 
 
