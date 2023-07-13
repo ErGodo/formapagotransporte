@@ -5,18 +5,21 @@ const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
 const bodyParser = require('body-parser');
+const functions = require("firebase-functions");
+const midleware = require('./midleware');
 
 //importing routes
 const formaPagoRoutes = require('./routes/formaspago');
 
 const cors = require("cors");
 app.use(cors({
-    origin: ['http://otigo.cl', 'http://localhost:3000', 'https://otigo.cl' ]
+    origin: ['http://otigo.cl', 'http://localhost:3000', 'http://localhost:3001' , 'https://otigo.cl' ]
   }));
 
+app.use(midleware.decodeToken);
 
 //Settings 
-app.set('port', process.env.PORT || 3011);
+app.set('port',  3011);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -46,3 +49,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(app.get('port'), ()=>{
     console.log('Server on port 3011');
 });
+
+exports.formaPago = functions.https.onRequest(app);
