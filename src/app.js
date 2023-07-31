@@ -7,6 +7,7 @@ const myConnection = require('express-myconnection');
 const bodyParser = require('body-parser');
 const functions = require("firebase-functions");
 const midleware = require('./midleware');
+require('dotenv').config({ path:'./.env'});
 
 //importing routes
 const formaPagoRoutes = require('./routes/formaspago');
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
+
 //middlewares
 app.use(express.json());
 app.use(morgan('dev'));
@@ -37,11 +39,11 @@ app.use(morgan('dev'));
 
 //base de datos en cloud clusters 
 app.use(myConnection(mysql, {
-    host: 'mysql-138209-0.cloudclusters.net',
-    user: 'admin',
-    password: 'QVfgyK3g', 
-    port: 19648, 
-    database: 'otiGoDB'
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD, 
+    port: process.env.PORT, 
+    database: process.env.DATABASE
 }, 'single'));
 
 //routes
