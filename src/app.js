@@ -27,14 +27,22 @@ app.set('views', path.join(__dirname, 'views'));
 //middlewares
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(myConnection(mysql, {
+/*app.use(myConnection(mysql, {
     host: 'us-cdbr-east-06.cleardb.net',
     user: 'baf3c85f075308',
     password: '2b185c89', 
     port: 3306, 
     database: 'heroku_ac5b0fe847456b7'
-}, 'single'));
+}, 'single'));*/
 
+//base de datos en cloud clusters 
+app.use(myConnection(mysql, {
+    host: 'mysql-138209-0.cloudclusters.net',
+    user: 'admin',
+    password: 'QVfgyK3g', 
+    port: 19648, 
+    database: 'otiGoDB'
+}, 'single'));
 
 //routes
 app.use('/', formaPagoRoutes);
