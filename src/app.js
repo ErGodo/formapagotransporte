@@ -42,7 +42,7 @@ app.use(myConnection(mysql, {
     host: process.env.HOST,
     user: process.env.USER,
     password: process.env.PASSWORD, 
-    port: process.env.PORT, 
+    port: process.env.DBPORT, 
     database: process.env.DATABASE
 }, 'single'));
 
