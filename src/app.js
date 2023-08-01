@@ -20,7 +20,7 @@ app.use(cors({
 app.use(midleware.decodeToken);
 
 //Settings 
-app.set('port',  3011);
+app.set('port',  3015);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //init server
 app.listen(app.get('port'), ()=>{
-    console.log('Server on port 3011');
+    console.log('Server on port 3015');
 });
 
 exports.formaPago = functions.https.onRequest(app);
