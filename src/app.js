@@ -44,7 +44,7 @@ app.use(myConnection(mysql, {
     password: process.env.PASSWORD, 
     port: process.env.DBPORT, 
     database: process.env.DATABASE
-}, 'single'));
+}, 'pool'));
 
 //routes
 app.use('/', formaPagoRoutes);
