@@ -20,7 +20,7 @@ app.use(cors({
 app.use(midleware.decodeToken);
 
 //Settings 
-app.set('port',  3015);
+app.set('port',  3016);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
